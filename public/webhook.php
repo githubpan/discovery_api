@@ -14,6 +14,8 @@ echo exec($cmd);
 echo exec("cd $target && echo \"".date('Y-m-d H:i:s',time())."\" >> public/webhook.log");
 echo exec("cd $target && echo \"".file_get_contents("php://input")."\" >> public/webhook.log")
 exit('0000');
+//webhook test
+
     if (empty($content['token']) || $content['token'] !== $token) {
         exit('error request');
     }
