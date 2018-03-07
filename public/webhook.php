@@ -6,19 +6,18 @@
     $token = 'git_pull_webhook';
     $wwwUser = 'www';
     $wwwGroup = 'www';
-echo file_get_contents('php://input');
-$cmd = 'cd '.$target.' && echo "'.file_get_contents('php://input').'" >> webhook.log';
-//    $json = json_decode(file_get_contents('php://input'), true);
-
-    if (empty($json['token']) || $json['token'] !== $token) {
-        //exit('error request');
+    $content = $_REQUEST;
+echo 321;    
+$cmd = "cd $target && echo \"".json_encode($content)."\" >> public/webhook.log";
+echo 654;
+echo exec($cmd);
+exit('0000');
+    if (empty($content['token']) || $content['token'] !== $token) {
+        exit('error request');
     }
 
 //    $repo = $json['repository']['name'];
 
     //$cmd = "cd $target && git pull";
-    //$cmd = 'cd '.$target.' && echo "'.json_encode($json).'" >> webhook.log';
-//exit($cmd);
-var_dump(shell_exec($cmd));exit("end");
-  echo shell_exec($cmd);
+    echo shell_exec($cmd);
 
