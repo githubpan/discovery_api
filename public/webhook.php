@@ -12,7 +12,7 @@ $cmd = "cd $target && echo \"".json_encode($content)."\" >> public/webhook.log";
 echo 654;
 echo exec($cmd);
 echo exec("cd $target && echo \"".date('Y-m-d H:i:s',time())."\" >> public/webhook.log");
-echo exec("cd $target && echo \"".file_get_contents("php://input")."\" >> public/webhook.log")
+echo exec("cd $target && echo \"".file_get_contents("php://input")."\" >> public/webhook.log");
 exit('0000');
     if (empty($content['token']) || $content['token'] !== $token) {
         exit('error request');
